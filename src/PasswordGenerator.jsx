@@ -1,8 +1,9 @@
-import React from 'react';
+
+import { useState } from 'react';
 import './PasswordGenerator.css';
 
 export default function PasswordGenerator() {
-  const [length, setLength] = useState(8);
+  const [length, setLength] = useState(12);
   const [includeUppercase, setIncludeUppercase] = useState(true);
   const [includeLowercase, setIncludeLowercase] = useState(true);
   const [includeNumbers, setIncludeNumbers] = useState(true);
@@ -32,39 +33,42 @@ export default function PasswordGenerator() {
       <div className="row min-vw-100 min-vh-100 justify-content-center align-items-center bg-info-subtle bg-image">
         <div className="col-11 col-sm-8 col-md-7 col-lg-6 col-xl-5">
 
-          <div className="bg-white d-flex flex-column justify-content-center align-items-center w-100 rounded-5">
+          <div className="bg-white d-flex flex-column justify-content-center align-items-center w-100 p-5 rounded-5">
 
             <div className='text-center text-success h2 mt-2'>Strong Password Generator</div>
 
-            <div>
-              <label htmlFor="num">Password Length:</label>
-              <input type="number" name="num" id="num" value={length} onChange={(e) => setLength(parseInt(e.target.value))} />
+            <div className='container m-2 p-2 border-2'>
+              <label className='form-label h5' htmlFor="num">Password Length</label>
+              <input className='form-control' type="number" name="num" id="num" value={length} onChange={(e) => setLength(parseInt(e.target.value))} />
             </div>
 
-            <div>
-              <input type="checkbox" name="upper" id="upper" checked={includeUppercase} onChange={(e) => setIncludeUppercase(e.target.checked)} />
-              <label htmlFor="upper">Inclue Uppercase</label>
+            <div className="text-start mb-2">
+              <div className='form-check'>
+                <input className='form-check-input' type="checkbox" name="upper" id="upper" checked={includeUppercase} onChange={(e) => setIncludeUppercase(e.target.checked)} />
+                <label className='form-check-label' htmlFor="upper">Inclue Uppercase</label>
+              </div>
+
+              <div className='form-check'>
+                <input className='form-check-input' type="checkbox" name="lower" id="lower" checked={includeLowercase} onChange={(e) => setIncludeLowercase(e.target.checked)} />
+                <label className='form-check-label' htmlFor="lower">Inclue Lowercase</label>
+              </div>
+
+              <div className='form-check'>
+                <input className='form-check-input' type="checkbox" name="numbers" id="numbers" checked={includeNumbers} onChange={(e) => setIncludeNumbers(e.target.checked)} />
+                <label className='form-check-label' htmlFor="numbers">Inclue Numbers</label>
+              </div>
+
+              <div className='form-check'>
+                <input className='form-check-input' type="checkbox" name="symbols" id="symbols" checked={includeSymbols} onChange={(e) => setIncludeSymbols(e.target.checked)} />
+                <label className='form-check-label' htmlFor="symbols">Inclue Symbols</label>
+              </div>
             </div>
 
-            <div>
-              <input type="checkbox" name="lower" id="lower" checked={includeLowercase} onChange={(e) => setIncludeLowercase(e.target.checked)} />
-              <label htmlFor="lower">Inclue Lowercase</label>
-            </div>
+            <button className='btn btn-primary' onClick={generatePassword}>Generate Password</button>
 
-            <div>
-              <input type="checkbox" name="numbers" id="numbers" checked={includeNumbers} onChange={(e) => setIncludeNumbers(e.target.checked)} />
-              <label htmlFor="numbers">Inclue Numbers</label>
-            </div>
-
-            <div>
-              <input type="checkbox" name="symbols" id="symbols" checked={includeSymbols} onChange={(e) => setIncludeSymbols(e.target.checked)} />
-              <label htmlFor="symbols">Inclue Symbols</label>
-            </div>
-            
-            <button onClick={generatePassword}>Generate Password</button>
-            <div>
-              <input type="text" name="" id="" readOnly value={password} />
-              <button onClick={copyToClipboard}>Copy</button>
+            <div className="container d-flex m-2">
+              <input className='form-control me-1' type="text" name="" id="" readOnly value={password} />
+              <button className='btn btn-outline-success' onClick={copyToClipboard}>Copy</button>
             </div>
             <p>Designed by <a href="https://www.linkedin.com/in/muthu-ammew" className="text-success text-decoration-none fw-bolder">Muthu</a></p>
           </div>
