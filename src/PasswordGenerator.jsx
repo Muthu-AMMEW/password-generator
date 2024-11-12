@@ -70,7 +70,7 @@ export default function PasswordGenerator() {
               <input className='form-control me-1' type="text" name="" id="" readOnly value={password} />
               <button className='btn btn-outline-success' onClick={copyToClipboard}>Copy</button>
             </div>
-            <p>Designed by <a href="https://www.linkedin.com/in/muthu-ammew" className="text-success text-decoration-none fw-bolder">Muthu</a></p>
+            <a href="https://www.linkedin.com/in/muthu-ammew" className="text-black text-decoration-none">Designed by <span className="text-success text-decoration-underline fw-bolder">Muthu</span></a>
           </div>
         </div>
       </div>
