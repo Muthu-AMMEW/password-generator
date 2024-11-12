@@ -33,7 +33,7 @@ export default function PasswordGenerator() {
       <div className="row min-vw-100 min-vh-100 justify-content-center align-items-center bg-info-subtle bg-image">
         <div className="col-11 col-sm-8 col-md-7 col-lg-6 col-xl-5">
 
-          <div className="bg-white d-flex flex-column justify-content-center align-items-center w-100 p-5 rounded-5">
+          <div className="bg-white d-flex flex-column justify-content-center align-items-center w-100 p-3 rounded-5">
 
             <div className='text-center text-success h2 mt-2'>Strong Password Generator</div>
 
